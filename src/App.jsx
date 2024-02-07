@@ -8,6 +8,8 @@ import SkwadPage from './pages/skwad';
 import NavBar from './components/TopNav';
 import { useState, useEffect } from "react";
 
+import VdayPage from './pages/vday';
+
 function App() {
   const [currentSection, setCurrentSection] = useState(0);
 
@@ -44,6 +46,7 @@ function App() {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/moonseekers" element={<MoonseekersPage />} />
           <Route path="/skwad" element={<SkwadPage />} />
+          <Route path="/vday" element={<VdayPage />} />
         </Routes>
       </div>
     </Router>

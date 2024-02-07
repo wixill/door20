@@ -1,0 +1,73 @@
+:root {
+    background-color: white !important;
+}
+
+nav {
+    display: none;
+}
+
+.maincontent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.maincontent[data-section="five"] img {
+    width: 30vw;
+}
+
+.maincontent[data-section="two"] button, .maincontent[data-section="four"] button {
+    font-size: 2rem;
+    margin: 2rem;
+}
+
+.yes {
+    background-color: red;
+}
+
+.maincontent[data-section="two"] .yes:hover, .maincontent[data-section="two"] .yes:focus {
+    background-color: green;
+}
+
+.no {
+    background-color: green;
+}
+
+.maincontent .start {
+    position: relative;
+    padding: 2rem;
+}
+
+.maincontent .start button {
+    position: absolute;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: pink;
+    border: none;
+    font-size: 5rem;
+}
+
+.maincontent .start:hover button {
+    display: block;
+}
+
+button {
+    border: none !important;
+    transition: all 0.5s ease-in-out;
+}
+
+button:hover, button:focus {
+    animation: wiggle 0.5s ease-in-out;
+}
+
+span {
+    color: black;
+    font-size: 5rem;
+    margin-bottom: 15rem;
+    display: block;
+}
