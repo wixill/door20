@@ -1,0 +1,33 @@
+nav {
+    background-color: transparent;
+    color: white;
+    overflow: hidden;
+    position: fixed; 
+    top: 0; 
+    width: 100%; 
+    z-index: 9999;
+    max-width: inherit;
+  }
+
+nav ul {
+  display: flex;
+  justify-content: flex-end;
+  list-style: none;
+}
+
+nav ul li {
+  margin-right: 2rem;
+}
+
+nav ul li a {
+  color: gold;
+  transition: transform 0.2s ease-in-out;
+  font-family: 'Alagard', sans-serif;
+  font-size: 1.4rem;
+}
+
+nav ul li a:hover {
+  color: white;
+  transform: scale(1.1);
+  display: block;
+}
