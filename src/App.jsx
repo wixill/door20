@@ -1,6 +1,6 @@
 import './App.css';
 import './fonts/fonts.css'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePage from './pages/home';
 import AboutPage from './pages/about';
 import MoonseekersPage from './pages/moonseekers';

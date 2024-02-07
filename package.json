@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://wixill.github.io/door20",
+  "homepage": "/door20/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
