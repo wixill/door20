@@ -23,15 +23,15 @@ nav {
     margin: 2rem;
 }
 
-.yes {
+.no {
     background-color: red;
 }
 
 .maincontent[data-section="two"] .yes:hover, .maincontent[data-section="two"] .yes:focus {
-    background-color: green;
+    background-color: red;
 }
 
-.no {
+.yes {
     background-color: green;
 }
 

@@ -34,7 +34,7 @@ function VdayPage() {
             {visibleSection === 'one' && <div className="start"><img src={happyvday} /><button onClick={() => showSection('two')}>Jane?</button></div>}
             {visibleSection === 'two' && <div><span>Will You Be My Valentine?</span><div><button onClick={() => showSection('three')} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)} className='yes'>{buttonText}</button><button onClick={() => showSection('three')} className='no'>No</button></div></div>}
             {visibleSection === 'three' && <div className="start"><img src={catsad} /></div>}
-            {visibleSection === 'four' && <div><span>Wait Really?</span><div><button style={yesStyle} onClick={() => showSection('five')} className='yes'>Yes</button><button onClick={() => makeBigger()} className='no'>No</button></div></div>}
+            {visibleSection === 'four' && <div><span>But For Real, Will You Be My Valentine?</span><div><button style={yesStyle} onClick={() => showSection('five')} className='yes'>Yes</button><button onClick={() => makeBigger()} className='no'>No</button></div></div>}
             {visibleSection === 'five' && <div className="start"><img src={lovebun} /></div>}
 
         </div>
