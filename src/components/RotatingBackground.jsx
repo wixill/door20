@@ -10,11 +10,12 @@ function RotatingBackground() {
         console.log(backgrounds);
         setBackgrounds(backgrounds);
 
-        setCurrentBackground(backgrounds[Math.floor(Math.random() * backgrounds.length)]);
+        let backgroundString = backgrounds[Math.floor(Math.random() * backgrounds.length)]
+        setCurrentBackground(backgroundString.replace("/public", ""));
 
         const interval = setInterval(() => {
             setCurrentBackground(backgrounds[Math.floor(Math.random() * backgrounds.length)]);
-        }, 5 * 60 * 1000);
+        }, 60 * 1000);
 
         return () => clearInterval(interval);
     }, []);
