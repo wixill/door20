@@ -1,0 +1,41 @@
+nav {
+    transition: all 0.3s ease-in-out;
+    background-color: transparent;
+    color: white;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: fit-content;
+    z-index: 9999;
+    max-width: inherit;
+    border-bottom-left-radius: 20px;
+
+    &:hover,
+    &:focus {
+        background-color: #3D2E2A;
+    }
+
+    ul {
+        display: flex;
+        justify-content: flex-end;
+        list-style: none;
+
+        li {
+            margin-right: 2rem;
+
+            a {
+                color: gold;
+                transition: transform 0.2s ease-in-out;
+                font-family: 'Alagard', sans-serif;
+                font-size: 1.4rem;
+
+                &:hover {
+                    color: white;
+                    transform: scale(1.1);
+                    display: block;
+                }
+            }
+        }
+    }
+}
