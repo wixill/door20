@@ -3,7 +3,9 @@ import { useState, useEffect } from "react";
 
 function CountdownTimer({ fileName }) {
     const [targetTime, setTargetTime] = useState(null);
-    const [countdown, setCountdown] = useState('');
+    const [countdownMinutes, setCountdownMinutes] = useState('');
+    const [countdownHours, setCountdownHours] = useState('');
+    const [countdownDays, setCountdownDays] = useState('');
 
     useEffect(() => {
         const filePath = '/config/' + fileName;
@@ -28,12 +30,25 @@ function CountdownTimer({ fileName }) {
                     newTargetTime.setDate(newTargetTime.getDate() + 14);
                     setTargetTime(newTargetTime);
                 } else {
-                    const minutes = Math.floor((difference / 1000 / 60) % 60);
-                    const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
-                    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                    let minutes = Math.floor((difference / 1000 / 60) % 60);
+                    let hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
+                    let days = Math.floor(difference / (1000 * 60 * 60 * 24));
 
-                    const countdownMessage = `${days} Days, ${hours} Hours, ${minutes} Minutes`;
-                    setCountdown(countdownMessage);
+                    if (minutes < 10) {
+                        minutes = '0' + minutes;
+                    }
+
+                    if (hours < 10) {
+                        hours = '0' + hours;
+                    }
+
+                    if (days < 10) {
+                        days = '0' + days;
+                    }
+
+                    setCountdownMinutes(minutes);
+                    setCountdownHours(hours);
+                    setCountdownDays(days);
                 }
             }, 1000);
 
@@ -43,8 +58,20 @@ function CountdownTimer({ fileName }) {
 
     return (
         <div className="countdown-timer">
-            <h2>Countdown Timer</h2>
-            <p>{countdown}</p>
+            <h2>Next Session In:</h2>
+            <div className="countdown">
+                <div className="countdown-value">
+                    <span>{countdownDays}</span>
+                </div>
+                <span className="countdown-divider">:</span>
+                <div className="countdown-value">
+                    <span>{countdownHours}</span>
+                </div>
+                <span className="countdown-divider">:</span>
+                <div className="countdown-value">
+                    <span>{countdownMinutes}</span>
+                </div>
+            </div>
         </div>
     )
 }

@@ -1,4 +1,3 @@
-import "../styles/RotatingBackground.less";
 import { useState, useEffect } from 'react';
 
 function RotatingBackground() {
@@ -15,7 +14,7 @@ function RotatingBackground() {
 
         const interval = setInterval(() => {
             setCurrentBackground(backgrounds[Math.floor(Math.random() * backgrounds.length)]);
-        }, 60 * 1000);
+        }, 3 * 1000);
 
         return () => clearInterval(interval);
     }, []);
