@@ -1,27 +1,57 @@
+import "../styles/RotatingBackground.less";
 import { useState, useEffect } from 'react';
 
 function RotatingBackground() {
     const [backgrounds, setBackgrounds] = useState([]);
-    const [currentBackground, setCurrentBackground] = useState('');
+    const [currentBackgrounds, setCurrentBackgrounds] = useState(["",""]);
+    const [activeBackground, setActiveBackground] = useState(1);
 
     useEffect(() => {
         const backgrounds = Object.keys(import.meta.glob("/public/assets/backgrounds/*"));
-        console.log(backgrounds);
         setBackgrounds(backgrounds);
-
-        let backgroundString = backgrounds[Math.floor(Math.random() * backgrounds.length)]
-        setCurrentBackground(backgroundString.replace("/public", ""));
-
-        const interval = setInterval(() => {
-            let backgroundString = backgrounds[Math.floor(Math.random() * backgrounds.length)]
-            setCurrentBackground(backgroundString.replace("/public", ""));
-        }, 3 * 1000);
-
-        return () => clearInterval(interval);
     }, []);
 
+    useEffect(() => {
+        updateBackground();
+    }, [backgrounds]);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            updateBackground();
+        }, 10 * 1000);
+
+        return () => clearInterval(interval);
+    }, [backgrounds, activeBackground]);
+
+    function updateBackground() {
+        if (backgrounds.length) {
+            let nextBackground;
+            if (activeBackground > 0) {
+                nextBackground = 0;
+            } else {
+                nextBackground = 1;
+            }
+            setActiveBackground(nextBackground);
+    
+            let backgroundString = backgrounds[Math.floor(Math.random() * backgrounds.length)].replace("/public", "");
+    
+            const updatedBackgrounds = currentBackgrounds.map((element, index) => {
+                if (nextBackground === index) {
+                    return backgroundString;
+                }
+    
+                return element;
+            });
+    
+            setCurrentBackgrounds(updatedBackgrounds);
+        }
+    }
+
     return (
-        <div style={{ backgroundImage: "url(" + currentBackground + ")", backgroundSize: 'cover', backgroundPosition: 'center', width: '100vw', height: '100vh' }}></div>
+        <div className="rotating-background">
+            <div className={"background" + (activeBackground === 0 ? " active" : "")} style={{ backgroundImage: "url(" + currentBackgrounds[0] + ")"}}></div>
+            <div className={"background" + (activeBackground === 1 ? " active" : "")} style={{ backgroundImage: "url(" + currentBackgrounds[1] + ")"}}></div>
+        </div>
     );
 }
 
