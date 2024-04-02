@@ -30,7 +30,7 @@ function CountdownTimer({ fileName }) {
                     newTargetTime.setDate(newTargetTime.getDate() + 14);
                     setTargetTime(newTargetTime);
                 } else {
-                    let minutes = Math.floor((difference / 1000 / 60) % 60);
+                    let minutes = Math.ceil((difference / 1000 / 60) % 60);
                     let hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
                     let days = Math.floor(difference / (1000 * 60 * 60 * 24));
 
