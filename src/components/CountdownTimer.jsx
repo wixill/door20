@@ -60,17 +60,27 @@ function CountdownTimer({ fileName }) {
         <div className="countdown-timer">
             <h2>Next Session In:</h2>
             <div className="countdown">
-                <div className="countdown-value">
-                    <span>{countdownDays}</span>
+                <div className="countdown-segment">
+                    <div className="countdown-value">
+                        <span>{countdownDays}</span>
+                    </div>
+                    <span className="segment-label">Days</span>
                 </div>
-                <span className="countdown-divider">:</span>
-                <div className="countdown-value">
-                    <span>{countdownHours}</span>
+                
+                <div className="countdown-segment">
+                    <div className="countdown-value">
+                        <span>{countdownHours}</span>
+                    </div>
+                    <span className="segment-label">Hours</span>
                 </div>
-                <span className="countdown-divider">:</span>
-                <div className="countdown-value">
-                    <span>{countdownMinutes}</span>
+        
+                <div className="countdown-segment">
+                    <div className="countdown-value">
+                        <span>{countdownMinutes}</span>
+                    </div>
+                    <span className="segment-label">Minutes</span>
                 </div>
+            
             </div>
         </div>
     )
