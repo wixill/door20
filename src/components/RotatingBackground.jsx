@@ -7,7 +7,7 @@ function RotatingBackground() {
     const [activeBackground, setActiveBackground] = useState(1);
 
     useEffect(() => {
-        const backgrounds = Object.keys(import.meta.glob("/public/assets/backgrounds/*"));
+        const backgrounds = Object.keys(import.meta.glob("/public/assets/backgrounds_optimized/*"));
         setBackgrounds(backgrounds);
     }, []);
 
