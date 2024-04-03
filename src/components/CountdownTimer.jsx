@@ -83,7 +83,7 @@ function CountdownTimer({ docId }) {
     }, [targetTime]);
 
     return (
-        <div className="countdown-timer">
+        <div className={"countdown-timer" + (countdownDays ? " loaded" : "")}>
             <h2>Next Session In:</h2>
             <div className="countdown">
                 <div className="countdown-segment">
