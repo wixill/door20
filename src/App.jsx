@@ -27,7 +27,13 @@ function App() {
         }
     }
 
+    function handlePageLoad() {
+        setCurrentSection(0);
+    }
+
     useEffect(() => {
+        setCurrentSection(0);
+
         window.addEventListener("wheel", handleScroll, { passive: false });
         return () => window.removeEventListener("wheel", handleScroll);
     }, []);
@@ -44,10 +50,10 @@ function App() {
             <NavBar />
             <div>
                 <Routes>
-                    <Route path="/" element={<HomePage />} />
-                    <Route path="/about" element={<AboutPage />} />
-                    <Route path="/moonseekers" element={<MoonseekersPage />} />
-                    <Route path="/skwad" element={<SkwadPage />} />
+                    <Route path="/" element={<HomePage onPageLoad={() => handlePageLoad()} />}  />
+                    <Route path="/about" element={<AboutPage onPageLoad={() => handlePageLoad()} />}  />
+                    <Route path="/moonseekers" element={<MoonseekersPage onPageLoad={() => handlePageLoad()} />} />
+                    <Route path="/skwad" element={<SkwadPage onPageLoad={() => handlePageLoad()} />}  />
                 </Routes>
             </div>
         </Router>

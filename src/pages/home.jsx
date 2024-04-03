@@ -2,8 +2,13 @@ import "../styles/home.less";
 import skwadTile from "/assets/skwaddnd_tile.png";
 import moonTile from "/assets/moonseekers_tile.png";
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 
-function HomePage() {
+function HomePage({ onPageLoad }) {
+    useEffect(() => {
+        onPageLoad();
+      }, []);
+
     return (
         <div className="page-home">
             <div className="homepage-background page-section">

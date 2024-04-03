@@ -1,7 +1,12 @@
 import CountdownTimer from "../components/CountdownTimer";
 import RotatingBackground from "../components/RotatingBackground";
+import { useState, useEffect } from "react";
 
-function MoonseekersPage() {
+function MoonseekersPage({ onPageLoad }) {
+    useEffect(() => {
+        onPageLoad();
+      }, []);
+
     return (
         <div className="page-moonseekers">
             <div className="top-banner">
