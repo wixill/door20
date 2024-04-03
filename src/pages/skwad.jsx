@@ -6,7 +6,7 @@ function SkwadPage() {
         <div className="page-skwad">
             <div className="top-banner">
                 <RotatingBackground />
-                <CountdownTimer fileName="skwad_config.json" />
+                <CountdownTimer docId="Skwad" />
             </div>
         </div>
     );

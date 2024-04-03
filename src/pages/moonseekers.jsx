@@ -6,7 +6,7 @@ function MoonseekersPage() {
         <div className="page-moonseekers">
             <div className="top-banner">
                 <RotatingBackground />
-                <CountdownTimer fileName="moonseekers_config.json" />
+                <CountdownTimer docId="Moonseekers" />
             </div>
         </div>
     );

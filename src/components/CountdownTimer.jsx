@@ -1,21 +1,53 @@
 import "../styles/CountdownTimer.less";
+import {setDoc, getDoc, doc, Timestamp} from "firebase/firestore";
+import {db} from '../firebase';
 import { useState, useEffect } from "react";
 
-function CountdownTimer({ fileName }) {
+function CountdownTimer({ docId }) {
     const [targetTime, setTargetTime] = useState(null);
     const [countdownMinutes, setCountdownMinutes] = useState('');
     const [countdownHours, setCountdownHours] = useState('');
     const [countdownDays, setCountdownDays] = useState('');
 
+    async function updateTime(time) {
+        try {
+            const docRef = doc(db, "campaigns", docId);
+            await setDoc(docRef, {
+                next_session: Timestamp.fromDate(time)
+            });
+        } catch (error) {
+            console.log("Error updating Target time: ", error);
+        }
+        
+    }
+
     useEffect(() => {
-        const filePath = '/config/' + fileName;
-        fetch(filePath)
-            .then(response => response.json())
-            .then(data => {
-                setTargetTime(new Date(data.nextSession))
-            })
-            .catch(error => console.error(`Error fetching target time from ${filePath}:`, error));
-    }, [fileName]);
+        const fetchTargetTime = async() => {
+            try {
+                const docRef = doc(db, "campaigns", docId);
+                const docSnap = await getDoc(docRef);
+
+                if (docSnap.exists) {
+                    let time = docSnap.get("next_session").toDate();
+                    const currentTime = new Date();
+                    const difference = time - currentTime;
+
+                    if (difference <= 0) {
+                        time.setDate(time.getDate() + 14);
+                        updateTime(time);
+                    }
+
+                    setTargetTime(time);
+                } else {
+                    console.log("Target Time Not Found.");
+                }
+            } catch (error) {
+                console.log("Error fetching Target time: ", error);
+            }
+        };
+
+        fetchTargetTime();
+    }, [docId]);
 
     useEffect(() => {
         if (targetTime) {
@@ -23,13 +55,7 @@ function CountdownTimer({ fileName }) {
                 const currentTime = new Date();
                 const difference = targetTime - currentTime;
 
-                if (difference <= 0) {
-                    clearInterval(interval);
-                    
-                    const newTargetTime = new Date();
-                    newTargetTime.setDate(newTargetTime.getDate() + 14);
-                    setTargetTime(newTargetTime);
-                } else {
+                if (difference > 0) {
                     let minutes = Math.ceil((difference / 1000 / 60) % 60);
                     let hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
                     let days = Math.floor(difference / (1000 * 60 * 60 * 24));
