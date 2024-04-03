@@ -1,0 +1,50 @@
+.page-about {
+    .page-section {
+        padding: 20px;
+
+        &:first-child {
+            margin-top: 70px;
+            height: calc(100vh - 110px);
+        }
+
+        .page-title {
+            margin-bottom: 30px;
+        }
+
+        .content {
+            display: flex;
+            align-items: center;
+            max-width: 760px;
+
+            .images-wrapper {
+                display: flex;
+                padding: 10px;
+                align-items: center;
+                align-content: center;
+                justify-content: space-evenly;
+
+                img {
+                    width: 160px;
+                    height: auto;
+                    animation: rotation 8s infinite linear;
+                }
+            }
+        
+            .description {
+                display: flex;
+                flex-direction: column;
+                font-size: 18px;
+                font-family: 'Alagard', sans-serif;
+                line-height: 2;
+                margin-right: auto;
+                gap: 30px;
+        
+                p,
+                ul,
+                h2 {
+                    margin: 0;
+                }
+            }
+        }
+    }
+}

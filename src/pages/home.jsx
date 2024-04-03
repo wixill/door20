@@ -2,7 +2,7 @@ import "../styles/home.less";
 import skwadTile from "/assets/skwaddnd_tile.png";
 import moonTile from "/assets/moonseekers_tile.png";
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 
 function HomePage({ onPageLoad }) {
     useEffect(() => {

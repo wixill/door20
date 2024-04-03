@@ -1,6 +1,6 @@
 import CountdownTimer from "../components/CountdownTimer";
 import RotatingBackground from "../components/RotatingBackground";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 
 function MoonseekersPage({ onPageLoad }) {
     useEffect(() => {
