@@ -1,5 +1,5 @@
 import "../styles/CountdownTimer.less";
-import {setDoc, getDoc, doc, Timestamp} from "firebase/firestore";
+import {updateDoc, getDoc, doc, Timestamp} from "firebase/firestore";
 import {db} from '../firebase';
 import { useState, useEffect } from "react";
 
@@ -12,13 +12,12 @@ function CountdownTimer({ docId }) {
     async function updateTime(time) {
         try {
             const docRef = doc(db, "campaigns", docId);
-            await setDoc(docRef, {
+            await updateDoc(docRef, {
                 next_session: Timestamp.fromDate(time)
             });
         } catch (error) {
             console.log("Error updating Target time: ", error);
         }
-        
     }
 
     useEffect(() => {
@@ -27,7 +26,7 @@ function CountdownTimer({ docId }) {
                 const docRef = doc(db, "campaigns", docId);
                 const docSnap = await getDoc(docRef);
 
-                if (docSnap.exists) {
+                if (docSnap.exists()) {
                     let time = docSnap.get("next_session").toDate();
                     const currentTime = new Date();
                     const difference = time - currentTime;
