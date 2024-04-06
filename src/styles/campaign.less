@@ -1,0 +1,29 @@
+.component-toggle {
+    position: absolute;
+    bottom: 10px;
+    right: 0;
+    left: 0;
+    margin: auto;
+    width: fit-content;
+    display: flex;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid #ffbf00;
+
+    button {
+        border-radius: 0;
+        color: #ffbf00;
+        background-color: rgba(61, 46, 42, 80%);
+        transition: all 0.2s ease-in-out;
+        font-family: 'Alagard', sans-serif;
+
+        &.active {
+            filter: brightness(30%);
+        }
+
+        &:first-child {
+            border-right: 2px solid #ffbf00;
+        }
+    }
+    
+}
