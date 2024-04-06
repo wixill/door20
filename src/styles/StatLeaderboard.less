@@ -100,16 +100,21 @@
     
                         img {
                             width: 100%;
+                            height: 100%;
                             position: absolute;
                         }
                     }
     
                     .name {
                         display: block;
-                        min-width: 90px;
+                        width: 90px;
                         overflow: clip;
                         text-transform: capitalize;
                         text-align: left;
+
+                        &.large-name {
+                            font-size: 16px;
+                        }
                     }
 
                     .stat {

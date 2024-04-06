@@ -58,7 +58,7 @@ export default function StatsLeaderboard({ docId }) {
                     if (index !== 'gamemaster') {
                         const rank = <span className="rank">#{rankVal}</span>;
                         const playerImage = <div className="player-pic"><img src={`/assets/${docId}/players/${index}.jpg`} /></div>;
-                        const playerName = <span className="name">{index}</span>;
+                        const playerName = <span className={"name" + (index.length > 7 ? " large-name" : "")}>{index}</span>;
                         const stat = <span className="stat">{value[1]}</span>;
                         const element = <div key={`${index}-${label.replace(/\s+/g, '')}`} className="player-stat">{rank}{playerImage}{playerName}{stat}</div>;
                         listing.push(element);
