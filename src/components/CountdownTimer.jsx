@@ -82,32 +82,34 @@ function CountdownTimer({ docId }) {
     }, [targetTime]);
 
     return (
-        <div className={"countdown-timer" + (countdownDays ? " loaded" : "")}>
-            <h2>Next Session In:</h2>
-            <div className="countdown">
-                <div className="countdown-segment">
-                    <div className="countdown-value">
-                        <span>{countdownDays}</span>
+        <div className="countdown-wrapper">
+            <div className={"countdown-timer" + (countdownDays ? " loaded" : "")}>
+                <h2>Next Session In:</h2>
+                <div className="countdown">
+                    <div className="countdown-segment">
+                        <div className="countdown-value">
+                            <span>{countdownDays}</span>
+                        </div>
+                        <span className="segment-label">Days</span>
                     </div>
-                    <span className="segment-label">Days</span>
-                </div>
-                
-                <div className="countdown-segment">
-                    <div className="countdown-value">
-                        <span>{countdownHours}</span>
+                    
+                    <div className="countdown-segment">
+                        <div className="countdown-value">
+                            <span>{countdownHours}</span>
+                        </div>
+                        <span className="segment-label">Hours</span>
                     </div>
-                    <span className="segment-label">Hours</span>
-                </div>
-        
-                <div className="countdown-segment">
-                    <div className="countdown-value">
-                        <span>{countdownMinutes}</span>
-                    </div>
-                    <span className="segment-label">Minutes</span>
-                </div>
             
+                    <div className="countdown-segment">
+                        <div className="countdown-value">
+                            <span>{countdownMinutes}</span>
+                        </div>
+                        <span className="segment-label">Minutes</span>
+                    </div>
+                </div>
             </div>
         </div>
+        
     )
 }
 

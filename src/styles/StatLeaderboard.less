@@ -1,0 +1,131 @@
+.stats-wrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+
+    .statleaderboard {
+        display: flex;
+        justify-content: space-evenly;
+        width: 90%;
+        margin: 70px auto 0;
+        
+        .statscard {
+            flex: 0 1 calc(30% - 10px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            max-width: 345px;
+            position: relative;
+            border-radius: 32px;
+            font-family: 'Alagard', sans-serif;
+
+            &.crits {
+                h2 {
+                    color: rgba(2, 155, 2, 0.863);
+                }
+            }
+
+            &.fails {
+                h2 {
+                    color: rgba(255, 0, 0, 0.685);
+                }
+            }
+
+            &.ratios {
+                h2 {
+                    color: teal;
+                }
+            }
+    
+            h2 {
+                font-size: 22px;
+                margin: 10px 0;
+                text-shadow: 4px 4px 4px black;
+                font-family: 'mario2';
+            }
+    
+            .player-listing {
+                width: 100%;
+                height: 100%;
+                border-radius: 16px;
+                position: relative;
+                height: calc(100vh - 220px);
+                overflow-y: auto;
+                overflow-x: clip;
+                border: 2px solid rgba(255, 255, 255, 10%);
+                backdrop-filter: blur(3px);
+                background: rgba(0, 0, 0, 10%);
+    
+                .content {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    padding: 25px 0;
+                    gap: 25px;
+                    font-size: 24px;
+                    text-shadow: 2px 2px 2px black;
+                }
+
+                .player-stat {
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-start;
+                    padding-right: 20px;
+                    padding-left: 10px;
+                    gap: 20px;
+
+                    &:nth-child(1) {
+                        color: #ffbf00;
+                    }
+
+                    &:nth-child(2) {
+                        color: #C0C0C0;
+                    }
+
+                    &:nth-child(3) {
+                        color: #B87333;
+                    }
+    
+                    .player-pic {
+                        width: 64px;
+                        height: 64px;
+                        min-width: 64px;
+                        min-height: 64px;
+                        overflow: hidden;
+                        border-radius: 16px;
+                        position: relative;
+
+    
+                        img {
+                            width: 100%;
+                            position: absolute;
+                        }
+                    }
+    
+                    .name {
+                        display: block;
+                        min-width: 90px;
+                        overflow: clip;
+                        text-transform: capitalize;
+                        text-align: left;
+                    }
+
+                    .stat {
+                        min-width: 40px;
+                        text-align: center;
+                        font-size: 32px;
+                    }
+    
+                    .rank {
+                        min-width: 50px;
+                        font-family: 'mario2', sans-serif;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+}
+

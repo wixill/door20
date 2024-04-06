@@ -9,13 +9,9 @@ import NavBar from "./components/TopNav";
 import { useState, useEffect } from "react";
 
 function App() {
-    const [currentSection, setCurrentSection] = useState(0);
-
-
 
     function handlePageLoad() {
         window.scrollTo(0, 0);
-        setCurrentSection(0);
     }
 
     return (

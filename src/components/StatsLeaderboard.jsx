@@ -1,3 +1,4 @@
+import "../styles/StatLeaderboard.less";
 import {getDoc, doc} from "firebase/firestore";
 import {db} from '../firebase';
 import { useState, useEffect } from 'react';
@@ -45,7 +46,7 @@ export default function StatsLeaderboard({ docId }) {
         }
     }, [playerStats]);
 
-    function StatsCard({ stats, label }) {
+    function StatsCard({ className, stats, label }) {
 
         const getPlayerListing = () => {
             let listing = [];
@@ -56,7 +57,7 @@ export default function StatsLeaderboard({ docId }) {
                     const index = value[0];
                     if (index !== 'gamemaster') {
                         const rank = <span className="rank">#{rankVal}</span>;
-                        const playerImage = <img className="player-pic" src={`/assets/${docId}/players/${index}.jpg`} />;
+                        const playerImage = <div className="player-pic"><img src={`/assets/${docId}/players/${index}.jpg`} /></div>;
                         const playerName = <span className="name">{index}</span>;
                         const stat = <span className="stat">{value[1]}</span>;
                         const element = <div key={`${index}-${label.replace(/\s+/g, '')}`} className="player-stat">{rank}{playerImage}{playerName}{stat}</div>;
@@ -70,20 +71,24 @@ export default function StatsLeaderboard({ docId }) {
         }
     
         return (
-            <div className="statscard">
+            <div className={className + " statscard"}>
                 <h2>{label}</h2>
                 <div className="player-listing">
-                    {getPlayerListing()}
+                    <div className="content">
+                        {getPlayerListing()}
+                    </div>
                 </div>
             </div>
         )
     };
 
     return (
-        <div>
-            <StatsCard stats={totalCrits} label="Total Crits" />
-            <StatsCard stats={totalFails} label="Total Fails" />
-            <StatsCard stats={rollRatios} label="Crit/Fail Ratio" />
+        <div className="stats-wrapper">
+            <div className="statleaderboard">
+                <StatsCard className="crits" stats={totalCrits} label="Total Crits" />
+                <StatsCard className="fails" stats={totalFails} label="Total Fails" />
+                <StatsCard className="ratios" stats={rollRatios} label="Crit/Fail Ratio" />
+            </div>
         </div>
     )
 };

@@ -21,14 +21,17 @@ function HomePage({ onPageLoad }) {
                 </div>
             </div>
             <div className="party-selection page-section">
-                <h2>Choose Your Party</h2>
-                <div className="party-blocks">
-                    <Link className="linkBlock" to="/skwad">
-                        <img src={skwadTile} />
-                    </Link>
-                    <Link className="linkBlock" to="/moonseekers">
-                        <img src={moonTile} />
-                    </Link>
+                <div className="background"></div>
+                <div className="content">
+                    <h2>Choose Your Party</h2>
+                    <div className="party-blocks">
+                        <Link className="linkBlock" to="/skwad">
+                            <img src={skwadTile} />
+                        </Link>
+                        <Link className="linkBlock" to="/moonseekers">
+                            <img src={moonTile} />
+                        </Link>
+                    </div>
                 </div>
             </div>
         </div>
