@@ -99,9 +99,9 @@ function UploadStatsButton({ docId }) {
 
                         if (targetPlayer) {
                             if ($roll.hasClass('fullfail')) {
-                                stats[index].crits++;
-                            } else if ($roll.hasClass('fullcrit')) {
                                 stats[index].fails++;
+                            } else if ($roll.hasClass('fullcrit')) {
+                                stats[index].crits++;
                             }
                             
                             playerFound = true;
@@ -111,11 +111,10 @@ function UploadStatsButton({ docId }) {
 
                     if (!playerFound) {
                         if ($roll.hasClass('fullfail')) {
-                            stats['gamemaster'].crits++;
-                        } else if ($roll.hasClass('fullcrit')) {
                             stats['gamemaster'].fails++;
+                        } else if ($roll.hasClass('fullcrit')) {
+                            stats['gamemaster'].crits++;
                         }
-
                     }
                 }
             });
