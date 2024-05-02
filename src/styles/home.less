@@ -89,3 +89,37 @@
         animation: wiggle 0.5s ease-in-out;
     }
 }
+
+
+@media only screen and (max-width: 768px) {
+    .page-home {
+        .homepage-background {
+            background-position: 48.5% 50%;
+
+            .page-title {
+                h1 {
+                    font-size: 4rem;
+                }
+            }
+        }
+
+        .party-selection {
+            h2 {
+                font-size: 2rem;
+                position: relative;
+                top: 2%;
+            }
+
+            .party-blocks {
+                flex-direction: column;
+                gap: 20px;
+
+                .linkBlock {
+                    height: 300px;
+                    width: 200px;
+                    min-height: unset;
+                }
+            }
+        }
+    }
+}

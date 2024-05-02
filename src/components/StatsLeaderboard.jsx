@@ -2,6 +2,7 @@ import "../styles/StatLeaderboard.less";
 import {getDoc, doc} from "firebase/firestore";
 import {db} from '../firebase';
 import { useState, useEffect } from 'react';
+import Slider from "./Slider";
 
 export default function StatsLeaderboard({ docId }) {
     const [playerStats, setPlayerStats] = useState(null);
@@ -85,9 +86,15 @@ export default function StatsLeaderboard({ docId }) {
     return (
         <div className="stats-wrapper">
             <div className="statleaderboard">
-                <StatsCard className="crits" stats={totalCrits} label="Total Crits" />
-                <StatsCard className="fails" stats={totalFails} label="Total Fails" />
-                <StatsCard className="ratios" stats={rollRatios} label="Crit/Fail Ratio" />
+                <Slider 
+                    slides={[
+                        <StatsCard className="crits" stats={totalCrits} label="Total Crits" />,
+                        <StatsCard className="fails" stats={totalFails} label="Total Fails" />,
+                        <StatsCard className="ratios" stats={rollRatios} label="Crit/Fail Ratio" />
+                        ]}
+                    desktopSlides={3}
+                    mobileSlides={1}
+                />
             </div>
         </div>
     )
