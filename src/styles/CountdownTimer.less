@@ -78,10 +78,18 @@
         .countdown-timer {
             .countdown {
                 gap: 20px;
-                font-size: 80px;
+                font-size: 48px;
                 min-width: unset;
                 min-height: unset;
                 flex-direction: column;
+
+                .countdown-segment {
+                    .countdown-value {
+                        span {
+                            min-width: 100px;
+                        }
+                    }
+                }
             }
         }
     }
