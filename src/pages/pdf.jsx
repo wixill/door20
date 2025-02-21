@@ -9,7 +9,11 @@ function PdfPage({ onPageLoad }) {
             import.meta.glob(
                 "/public/assets/pdf_images/bloomburrow_player_guide/*"
             )
-        )
+        ).sort((a, b) => {
+            const aNum = Number(a.split("page_")[1].split(".")[0]);
+            const bNum = Number(b.split("page_")[1].split(".")[0]);
+            return aNum - bNum;
+        })
     );
 
     const [currentImage, setCurrentImage] = useState(0);
