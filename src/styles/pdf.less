@@ -1,0 +1,36 @@
+.page-pdf {
+    .pdf-image {
+        height: 100vh;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .pdf-prev-button,
+    .pdf-next-button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #ffbf00;
+        background-color: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        svg {
+            width: 3em;
+            height: 3em;
+        }
+
+        &:disabled {
+            opacity: 0.5;
+        }
+    }
+
+    .pdf-prev-button {
+        left: 10px;
+    }
+
+    .pdf-next-button {
+        right: 10px;
+    }
+}
