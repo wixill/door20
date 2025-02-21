@@ -20,13 +20,6 @@ function PdfPage({ onPageLoad }) {
 
     return (
         <div className="page-pdf">
-            <button
-                onClick={() => setCurrentImage(currentImage - 1)}
-                className="pdf-prev-button"
-                disabled={currentImage === 0}
-            >
-                <NavigateBeforeIcon />
-            </button>
             <img
                 className="pdf-image"
                 src={pdfImages.current[currentImage].replace("/public", "")}
@@ -37,6 +30,13 @@ function PdfPage({ onPageLoad }) {
                 disabled={currentImage === pdfImages.current.length - 1}
             >
                 <NavigateNextIcon />
+            </button>
+            <button
+                onClick={() => setCurrentImage(currentImage - 1)}
+                className="pdf-prev-button"
+                disabled={currentImage === 0}
+            >
+                <NavigateBeforeIcon />
             </button>
         </div>
     );
